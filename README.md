@@ -14,7 +14,6 @@ simply demonstrate a string method.
 2. Given a string with a recurring delimiter character (eg. "one;two;three"), create an algorithm 
 that will separate the string into parts and return an array of substrings (eg. ["one", "two", 
 "three"]). Please implement the algorithm; do not simply demonstrate a string method.
-
 /src/codingtest/delimiter.java
 
 3. Create a class that is initialized with a string representing a Roman numeral. Provide 
