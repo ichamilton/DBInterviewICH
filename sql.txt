@@ -1,0 +1,14 @@
+Original Query:
+SELECT * FROM EMPLOYEES WHERE ID IN (SELECT USER_ID FROM 
+DEPARTMENT_MEMBERS WHERE DEPARTMENT_ID=7)	
+	
+New Query:	
+SELECT *
+FROM EMPLOYEES
+INNER JOIN DEPARTMENT_MEMBERS
+ON EMPLOYEES.ID=DEPARTMENT_MEMBERS.USER_ID
+WHERE DEPARTMENT_ID=7
+
+I changed the nested query to an inner join because in the training class I took we were encouraged to use joins over nested queries for readability and, potentially, performance reasons.  Both of those would, I think, qualify as better.
+
+Regarding assumptions about the tables, the names of the fields and tables made me wonder why 'Department ID' would be part of a table called 'Department Members', but not one called 'Employees'.  The low number (7) and the fact that multiple Employees seem to have that value imply that Department ID maps to something like 'Engineering' or 'Finance'.  If I had a broad table of personnel, I would think that including their departments in the broad table would be useful to serve as a foreign key to use for any department-specific tables.  On the other hand, if 'Department Members' can have differing 'Department IDs' as implied by the initial query, maybe this means something else.    
